@@ -1,0 +1,22 @@
+###MYSQL Preparation###
+
+1. kill all mysql connections (maybe restart if you want to)
+
+2. login to mysql as root, run below sql
+set global max_connections=2;
+
+3. create a test user if there is not 
+create user 'test'@'localhost' identified by 'test';
+
+4.
+create database if not exists test;
+grant all on test.* to 'test'@'localhost';
+
+
+
+### run the test using the below cmd, you will see something like reproduce_out.log  ###
+sbt run
+
+
+
+
