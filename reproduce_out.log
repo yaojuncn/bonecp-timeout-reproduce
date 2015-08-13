@@ -13,13 +13,11 @@ Java HotSpot(TM) 64-Bit Server VM warning: ignoring option MaxPermSize=384m; sup
 M[2K[0m[[0minfo[0m] [0mResolving org.scala-lang#jline;2.10.4 ...[0m
 M[2K[0m[[0minfo[0m] [0mResolving org.fusesource.jansi#jansi;1.4 ...[0m
 [0m[[0minfo[0m] [0mDone updating.[0m
-[0m[[0minfo[0m] [0mCompiling 1 Scala source to /Users/y/pubcodes/bonecp-timeout-reproduce/target/scala-2.10/classes...[0m
 [0m[[0minfo[0m] [0mRunning BoneCpTimeoutReproduce [0m
 SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
 SLF4J: Defaulting to no-operation (NOP) logger implementation
 SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
-Wed Aug 12 23:08:55 PDT 2015 tid=46, id=1, name=jack
-Wed Aug 12 23:08:55 PDT 2015 tid=46, id=2, name=lucy
+Wed Aug 12 23:34:53 PDT 2015 tid=45, value=1
 [0m[[31merror[0m] [0m(run-main-0) java.sql.SQLException: Timed out waiting for a free available connection.[0m
 java.sql.SQLException: Timed out waiting for a free available connection.
 	at com.jolbox.bonecp.BoneCP.getConnection(BoneCP.java:503)
@@ -36,4 +34,4 @@ java.lang.RuntimeException: Nonzero exit code: 1
 	at scala.sys.package$.error(package.scala:27)
 [0m[[31mtrace[0m] [0mStack trace suppressed: run [34mlast compile:run[0m for the full output.[0m
 [0m[[31merror[0m] [0m(compile:[31mrun[0m) Nonzero exit code: 1[0m
-[0m[[31merror[0m] [0mTotal time: 63 s, completed 2015-8-12 23:09:56[0m
+[0m[[31merror[0m] [0mTotal time: 64 s, completed 2015-8-12 23:35:54[0m

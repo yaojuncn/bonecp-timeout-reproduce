@@ -42,9 +42,9 @@ object BoneCpTimeoutReproduce {
     val connection = connectionPool.getConnection();
 
     val statement = connection.createStatement()
-    val rs = statement.executeQuery("select id, name from test_t")
+    val rs = statement.executeQuery("select 1")
     while(rs.next()){
-      println(new Date() + " tid=" + Thread.currentThread().getId + ", id=" + rs.getInt("id") + ", name=" + rs.getString("name"))
+      println(new Date() + " tid=" + Thread.currentThread().getId + ", value=" + rs.getInt(1))
     }
 
     rs.close()
