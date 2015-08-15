@@ -1,0 +1,8 @@
+
+1.
+in PoolWatchThread.java, line 71, the statement below will give the value of 0; so that it will not create any new connections
+				maxNewConnections = this.partition.getMaxConnections()-this.partition.getCreatedConnections();
+
+the reason is below value is still 1 even the connection is closed; so it will be unable to create new connections any more
+this.partition.getCreatedConnections();
+
