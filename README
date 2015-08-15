@@ -1,15 +1,3 @@
-###MYSQL Preparation###
-
-
-1. create a test user if there is not
-create user 'test'@'localhost' identified by 'test';
-
-2. database and grant
-create database if not exists test;
-grant all on test.* to 'test'@'localhost';
-
-
-
 ### run the test using the below cmd, you will see something like reproduce_out.log  ###
 sbt run
 

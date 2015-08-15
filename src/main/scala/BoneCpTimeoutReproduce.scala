@@ -5,20 +5,15 @@ import com.jolbox.bonecp.{BoneCP, BoneCPConfig}
 
 object BoneCpTimeoutReproduce {
   def main(args: Array[String]): Unit ={
-    testcon1
+    testQueryTwice
   }
 
-  val maxageSeconds = 30
-  val connectionPool =initPool()
-
-
+  val maxageSeconds = 5
 
   def initPool(): BoneCP ={
-    Class.forName("com.mysql.jdbc.Driver");
+    Class.forName("org.h2.Driver");
     val config:BoneCPConfig = new BoneCPConfig();
-    config.setJdbcUrl("jdbc:mysql://localhost/test");
-    config.setUsername("test");
-    config.setPassword("test");
+    config.setJdbcUrl("jdbc:h2:~/test");
     config.setMaxConnectionAge(maxageSeconds, TimeUnit.SECONDS)
     config.setIdleMaxAgeInSeconds(maxageSeconds)
     config.setMinConnectionsPerPartition(1)
@@ -30,14 +25,18 @@ object BoneCpTimeoutReproduce {
 
   }
 
-  def testcon1(): Unit ={
-    runQuery()
-    runQuery()
+  def testQueryTwice(): Unit ={
+    val connectionPool =initPool()
+
+    runQuery(connectionPool)
+    runQuery(connectionPool)
+
+    connectionPool.shutdown()
   }
 
 
 
-  def runQuery(): Unit ={
+  def runQuery(connectionPool: BoneCP): Unit ={
 
     val connection = connectionPool.getConnection();
 
